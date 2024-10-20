@@ -1,67 +1,182 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* General App Styling */
+html, body {
+  height: 100%; /* Ensure full height */
+  margin: 0; /* Remove default margin */
+}
+
 .App {
   text-align: center;
-  font-family: arial;
+  font-family: 'Poppins', sans-serif; /* Ensure this line is included */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5; /* Light grey background */
 }
 
-.Menu {
-  width: 500px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: lightseagreen;
+/* Menu and Quiz container */
+.Menu,
+.Quiz,
+.EndScreen {
+  width: 100%;
+  max-width: 500px;
+  min-height: 500px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #ffffff; /* White for the background */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease-in-out;
 }
 
-.Menu input, button {
-  width: 300px;
+/* Input and Button styling */
+.Menu input,
+button {
+  width: 100%;
+  max-width: 300px;
   height: 50px;
-  margin: 5px;
+  margin: 10px;
   border: none;
-  border-radius: 5px;
-  font-size: 20px;
+  border-radius: 25px;
+  font-size: 18px;
+  background-color: #6200ea; /* Purple for buttons */
+  color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
   cursor: pointer;
+  transform: scale(1.05);
 }
 
-.Quiz {
-  width: 500px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: lightseagreen;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+button:active {
+  transform: scale(0.98);
 }
 
-.Menu, .Quiz, .EndScreen h1 {
-  color: white;
-}
-
-.EndScreen {
-  width: 500px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: lightseagreen;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Next Question Button */
 #nextQuestion {
   width: 200px;
+  font-size: 16px;
+}
+
+/* Headings styling */
+.Menu h1,
+.Quiz h1,
+.EndScreen h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1d1d1d; /* Dark gray for headings */
 }
 
 h3 {
-  color: #ffffff;
+  color: #1d1d1d;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
 
+/* Quiz option buttons styling */
+.Quiz button {
+  background-color: #6200ea; /* Purple for quiz buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Change background color when hovering */
+.Quiz button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
+}
+
+/* Styling for selected option */
+.Quiz .questions button.selected {
+  background-color: #bb86fc; /* Lighter purple for selected option */
+  transform: scale(1.05); /* Slightly enlarge the selected button */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Quiz option buttons styling */
+.Quiz .questions button {
+  margin: 5px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+/* Feedback styling */
+.feedback {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+/* Correct answer styling */
+.correct {
+  background-color: #4caf50; /* Green for correct answers */
+  color: white;
+  animation: fadeIn 0.5s;
+}
+
+/* Wrong answer styling */
+.wrong {
+  background-color: #f44336; /* Red for wrong answers */
+  color: white;
+  animation: fadeIn 0.5s;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .Menu,
+  .Quiz,
+  .EndScreen {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .Menu input,
+  button,
+  .Quiz button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Menu component styling */
+.Menu {
+  text-align: center; /* Center-align the text inside the Menu */
+}
+
+/* Input field styling */
+.Menu input {
+  text-align: center; /* Center the placeholder and user input text */
+  font-family: 'Poppins', sans-serif; /* Ensure the font matches the overall app */
+  font-size: 18px; /* Set a readable font size */
+  margin: 10px 0; /* Add margin for spacing */
+}
+
+/* Label styling */
+.Menu label {
+  font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+  font-size: 20px; /* Increase font size for better visibility */
+  color: #1d1d1d; /* Dark gray color for better contrast */
+}
+
+/* Button styling */
+.Menu button {
+  font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+  font-size: 18px; /* Set a readable font size */
 }
